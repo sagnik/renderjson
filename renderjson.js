@@ -74,7 +74,20 @@ var module;
     }
     var isempty = function(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return false;
                                   return true; }
-    var text = function(txt) { return document.createTextNode(txt) };
+    var text = function(txt) {
+	if (txt.indexOf("goldlabel") > -1){
+		var input = document.createElement("textarea");
+		input.name = "post";
+		//input.maxLength = "5000";
+		input.cols = "30";
+		input.rows = "1";
+		var inptxt= document.createTextNode(txt);
+		input.appendChild(inptxt);
+		return input;
+	}
+	else			
+ 		return document.createTextNode(txt); 
+    }
     var div = function() { return document.createElement("div") };
     var span = function(classname) { var s = document.createElement("span");
                                      if (classname) s.className = classname;
