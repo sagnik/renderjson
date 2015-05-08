@@ -10,6 +10,16 @@ jQuery("#smallbuttons").click(function () {
         alert(jQuery(this).attr('name'));
     });
 
+jQuery("#finalsubmitbuttonwrong").click(function () {
+        mydata={"submitwrong":"submitwrong"}
+        jQuery.ajax({
+        	type: "POST",
+        	url: "/",
+        	data: mydata,
+                dataType: "json",
+    	});
+        window.location.href = window.location.href
+    });
 jQuery("#finalsubmitbutton").click(function () {
       var goldlabels=new Array();
         
@@ -111,7 +121,7 @@ You pointed on x = <input type="text" name="form_x" size="4" /> - y = <input typ
 </form>
 <div id="labeltochange"></div>
 <!--form name="myform" method="post" -->
-<div id="submitbuttondiv"><input type="button" name="finalsubmitbutton" id="finalsubmitbutton" Value="Submit" ></div> 
+<div id="submitbuttondiv"><input type="button" name="finalsubmitbutton" id="finalsubmitbutton" Value="Submit" ><input type="button" name="finalsubmitbuttonwrong" id="finalsubmitbuttonwrong" Value="Submit Wrong" ></div> 
 <!-- /form -->
 </body>
 </html>
